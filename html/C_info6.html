@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>공연 일정</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+        <script src="http://ringpuppy2.dothome.co.kr/js/jquery-1.12.4.min.js"></script>
+        <script src="http://ringpuppy2.dothome.co.kr/js/jquery-migrate-1.4.1.min.js"></script>
+        <script src="http://ringpuppy2.dothome.co.kr/js/jquery.menu.js?ver=191110"></script>
+        <script src="http://ringpuppy2.dothome.co.kr/js/common.js?ver=191110"></script>
+        <script src="http://ringpuppy2.dothome.co.kr/js/wrest.js?ver=191110"></script>
+        <script src="http://ringpuppy2.dothome.co.kr/js/placeholders.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="/css/C_info6.css">
+        <link rel="stylesheet" type="text/css" media="all and (max-width: 428px)" href="/css/exm6.css">
+        
+    </head>
+    <body>
+     <div id="wrap">
+        <header id="header" class="">
+            <div class="header_wrap">
+             <h2 id="logo">
+                 <a href="#">
+                   <img src="/img/logo_black.png"
+                     alt="청와대, 국민 품으로" class="l_b">
+                 </a>
+               </h2>
+               <nav id="gnb1">
+                 <ul id="head_menu" class="topmenu">
+                   <li class="lnb">
+                     <a href="#" class="name">개방의 의미</a>
+                   </li>
+                   <li class="lnb">
+                     <a href="#" class="name">청와대 소개</a>
+                     <ul class="sub">
+                       <li>역사</li>
+                       <li>지도 및 주의사항</li>
+                       <li>경내 주요 유적</li>
+                     </ul>
+                   </li>
+                   <li class="lnb">
+                     <a href="#" class="name">관람안내</a>
+                     <ul class="sub">
+                       <li><a href="#">관람 규칙 및 규정</a></li>
+                       <li><a href="#">관람 신청 및 안내</a></li>
+                       <li><a href="#">안내도 및 관람코스</a></li>
+                       <li><a href="#">오시는 길</a></li>
+                       <li><a href="#">내부 개방 프로그램</a></li>
+                       <li><a href="#">공연 일정</a></li>
+                     </ul>
+                   </li>
+                   <li class="lnb">
+                     <a href="#" class="name">등산로</a>
+                     <ul class="sub">
+                       <li>개요</li>
+                       <li>등산로 코스</li>
+                       <li>등산로 이모저모</li>
+                     </ul>
+                   <li class="lnb">
+                     <a href="#" class="name">국민소통</a>
+                     <ul class="sub">
+                       <li>공지사항</li>
+                       <li>미디어센터</li>
+                       <li>자주하는 질문</li>
+                     </ul>
+                   <li class="lnb">
+                     <a href="#" class="name">내가 만드는 청와대</a>
+                     <ul class="sub">
+                       <li>관람후기</li>
+                     </ul>
+                 </ul>
+               </nav>
+       
+               <nav id="gnb2" class="">
+                 <a href="#" class="logo"><img src="/img/logo_white.png" alt="청와대, 국민 품으로" class="l_w"></a>
+       
+                 <a href="#" class="global">EN<span class="sr_only">영문페이지로 이동</span></a>
+       
+                 <a href="#" class="control open"><i class="fa-solid fa-bars"></i></a>
+       
+                 <!-- <h5 class="title"><img src="/img/sitemap_logo.png" alt="site map"><span>SITE MAP</span></h5>
+       
+                 <ul id="menu">
+                   <li>
+                     
+                    <div class="close" >
+                     <a href="#"><img style="width: 200px;" src="/img/logo_white.png" alt="logo"><i style="color: #FFF; padding: 0 10px 0 200px;" class="fa-solid fa-xmark"></i></a>
+                    </div>
+                    
+                   </li>
+       
+                   <li><a class="m" href="#">개방의 의미</a></li>
+       
+                   <li>
+                     <a class="m" href="#">청와대 소개</a>
+                     <ul>
+                       <li><a href="#">역사</a></li>
+       
+                       <li><a class="m" href="#">지도 및 주요시설<i class="fa-regular fa-plus"></i></a>
+                         <ul>
+                           <li>
+                             <a href="#">지도 및 주요시설</a>
+                           </li>
+                           <li>
+                             <a href="#">청와대 본관</a>
+                           </li>
+                           <li>
+                             <a href="#">영빈관</a>
+                           </li>
+                           <li>
+                             <a href="#">대통령 관저</a>
+                           </li>
+                           <li>
+                             <a href="#">수궁터</a>
+                           </li>
+                           <li>
+                             <a href="#">상춘재</a>
+                           </li>
+                           <li>
+                             <a href="#">녹지원</a>
+                           </li>
+                           <li>
+                             <a href="#">대통령 비서실</a>
+                           </li>
+                           <li>
+                             <a href="#">춘추관</a>
+                           </li>
+                           <li>
+                             <a href="#">무궁화 동산</a>
+                           </li>
+                           <li>
+                             <a href="#">칠궁</a>
+                           </li>
+                         </ul>
+                       </li>
+       
+                       <li><a href="#">경내 주요 유적</a></li>
+                     </ul>
+                   </li>
+       
+                   <li>
+                     <a class="m" href="#">관람안내</a>
+                     <ul>
+                       <li><a href="#">관람 규칙 및 규정</a></li>
+                       <li><a href="#">관람 신청 및 안내</a></li>
+                       <li><a href="#">안내도 및 관람코스</a></li>
+                       <li><a href="#">오시는 길</a></li>
+                       <li><a href="#">내부 개방 프로그램</a></li>
+                       <li><a href="#">공연 일정</a></li>
+                     </ul>
+                   </li>
+       
+                   <li>
+                     <a class="m" href="#">등산로</a>
+                     <ul>
+                       <li><a href="#">개요</a></li>
+                       <li><a href="#">등산로 코스</a></li>
+                       <li><a class="m" href="#">등산로 이모저모<i class="fa-regular fa-plus"></i></a>
+                         <ul>
+                           <li>
+                             <a href="#">유적 안내</a>
+                           </li>
+                           <li>
+                             <a href="#">관련 앱</a>
+                           </li>
+                         </ul>
+                       </li>
+                     </ul>
+                   </li>
+       
+                   <li>
+                     <a class="m" href="#">국민소통</a>
+                     <ul>
+                       <li><a href="#">공지사항</a></li>
+                       <li><a class="m" href="#">미디어센터<i class="fa-regular fa-plus"></i></a>
+                         <ul>
+                           <li>
+                             <a href="#">사진</a>
+                           </li>
+                           <li>
+                             <a href="#">영상</a>
+                           </li>
+                           <li>
+                             <a href="#">카드뉴스</a>
+                           </li>
+                         </ul>
+       
+                       </li>
+       
+                       <li><a href="#">자주하는 질문</a></li>
+                     </ul>
+                   </li>
+       
+                   <li>
+                     <a class="m" href="#">내가 만드는 청와대</a>
+                     <ul>
+                       <li><a href="#">국민 아이디어 제안</a></li>
+                       <li><a href="#">관람후기</a></li>
+                     </ul>
+                   </li>
+                 </ul> -->
+       
+                 <!-- <a class=" close" href="#"><img src="/img/logo_black.png" alt="logo"><i class="fa-solid fa-xmark"></i></a> -->
+                 <!-- <a href="" class="control close"><i class="fa-solid fa-xmark"></i>전체 메뉴 닫기</a> -->
+             </nav>
+            </div>
+        </header>
+
+        <!-- header 끝 -->
+        
+        <main id="main">
+         <div class="main_wrap">
+          <div id="content">
+           
+            <div class="depth">
+              <ul class="tab-list">
+                 <li class="">
+                     <a href="http://127.0.0.1:5500/html/C_info1.html" >관람 규칙 및 규정</a>
+                    </li>
+                      <li class="">
+                     <a href="http://127.0.0.1:5500/html/C_info2.html" >관람 신청 및 안내</a>
+                    </li>
+                      <li class="">
+                     <a href="http://127.0.0.1:5500/html/C_info3.html#" >안내도 및 관람코스</a>
+                    </li>
+                      <li class="">
+                     <a href="http://127.0.0.1:5500/html/C_info4.html" >오시는 길</a>
+                    </li>
+                      <li class="">
+                     <a href="http://127.0.0.1:5500/html/C_info5.html" >내부 개방 프로그램</a>
+                    </li>
+                      <li class="active">
+                     <a href="#" >공연 일정</a>
+                    </li>  
+              </ul>   
+             </div>
+
+            <div id="c-body">
+             <div class="e-wrap">
+              <div class="program">
+               <h2 class="title"><img src="/img/program_title.png" alt="title"></h2>
+               <p class="desc">5월 10일 새로운 희망의 문이 열립니다<br>
+                열린 공간 청와대의 역사적인 순간으로 초대합니다
+               </p>
+               <div class="program_a">
+
+                <div class="item" data-id="t1">
+                  <button type="button" class="a_button">
+                    <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                    5월 11일 ~ 22일 프로그램 세부내용 보기</span>
+                  </button>
+                  <div class="a_content">
+                    <div class="tbl_wrap">
+                      <div class="tbl_b">
+                        <table class="tbl c2">
+                          <caption>5월 11일 ~ 22일 프로그램을 담은 표로, 구분, 장소, 프로그램, 일자, 시간, 내용, 출연으로 구성되어 있습니다.</caption>
+                          <colgroup>
+                            <col style="width: 9.7%;">
+                            <col style="width: 8.5%;">
+                            <col style="width: 19%;">
+                            <col style="width: 10%;">
+                            <col style="width: 11%;">
+                            <col>
+                          </colgroup>
+                          <thead>
+                           <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">장소</th>
+                            <th scope="col">프로그램</th>
+                            <th scope="col">일자</th>
+                            <th scope="col">시간</th>
+                            <th scope="col">내용</th>
+                            <th scope="col">출연</th>
+                           </tr> 
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th rowspan="3" scope="rowgroup">약속을<br>담다</th>
+                              <td rowspan="3">대정원</td>
+                              <td rowspan="3">우리가 꿈꾸는 세상</td>
+                              <td>5월 11일~17일</td>
+                              <td>11:30</td>
+                              <td rowspan="3" class="txt_left">청와대 방문을 환영하며 방문객들을 맞이하는 다양한 공연</td>
+                              <td class="txt_left">국립국악원</td>
+                            </tr>
+                            <tr>
+                              <td>5월 11일~12일</td>
+                              <td>13:30</td>
+                              <td class="txt_left">한국의집예술단</td>
+                            </tr>
+                            <tr>
+                              <td>5월 13일~17일</td>
+                              <td>13:30</td>
+                              <td class="txt_left">국방부근무지원단</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="11">희망을<br> 나누다</th>
+                              <td rowspan="5">춘추관 앞</td>
+                              <td rowspan="3">날아라, 줄광대!</td>
+                              <td>5월 11일~17일</td>
+                              <td rowspan="2">11:30, 15:30</td>
+                              <td class="txt_left" rowspan="3">아슬아슬, 포복절도의 전통줄타기 공연</td>
+                              <td class="txt_left">줄타기연희단</td>
+                              </tr>
+                              <tr>
+                              <td>5월 18일~19일</td>
+                              <td class="txt_left" rowspan="2">줄타기보존회</td>
+                              </tr>
+                              <tr>
+                              <td>5월 20일~21일</td>
+                              <td>11:30, 15:30, 17:30</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="2">웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                              <td>5월 14일~15일</td>
+                              <td>13:30, 17:30</td>
+                              <td class="txt_left" rowspan="2">온 가족이 함께 즐기는 동심의 세계</td>
+                              <td class="txt_left" rowspan="2">팀클라운</td>
+                              </tr>
+                              <tr>
+                              <td>5월 21일</td>
+                              <td>14:00, 16:30</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="6">녹지원</td>
+                              <td rowspan="4">푸른 봄, 푸른 향기</td>
+                              <td>5월 11일~13일</td>
+                              <td rowspan="2">11:30, 15:30</td>
+                              <td class="txt_left" rowspan="4">푸른 반송, 푸른 잔디밭 위에서 펼치는 젊은 감각의 퓨전음악 공연</td>
+                              <td class="txt_left">두번째달</td>
+                              </tr>
+                              <tr>
+                              <td>5월 14일~17일</td>
+                              <td class="txt_left">피어나</td>
+                              </tr>
+                              <tr>
+                              <td>5월 18일~20일</td>
+                              <td>13:30, 15:30</td>
+                              <td class="txt_left">고물</td>
+                              </tr>
+                              <tr>
+                              <td>5월 21일</td>
+                              <td>11:30, 13:30, 15:30, 17:30</td>
+                              <td class="txt_left">첼로가야금</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="2">우리가 꿈꾸는 세상</td>
+                              <td>5월 18일~20일</td>
+                              <td>11:30</td>
+                              <td class="txt_left" rowspan="2">청와대 방문을 환영하며 방문객들을 맞이하는 다양한 공연</td>
+                              <td class="txt_left">국립국악원</td>
+                              </tr>
+                              <tr>
+                              <td>5월 19일</td>
+                              <td>10:30</td>
+                              <td class="txt_left">국방부근무지원단</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="5">역사를<br> 그리다</th>
+                              <td rowspan="3">영빈관 앞</td>
+                              <td rowspan="2">최고의 무사를 뽑아라!</td>
+                              <td rowspan="2">5월 11일~21일</td>
+                              <td rowspan="2">13:30, 17:30</td>
+                              <td rowspan="2" class="txt_left">국가의 경사를 맞아 펼쳐졌던 내금위(왕실경호원) 무사 등용 의식을 재현</td>
+                              <td class="txt_left">십팔기보존회</td>
+                              </tr>
+                              <tr>
+                              <td class="txt_left">경복궁수문군</td>
+                              </tr>
+                              <tr>
+                              <td>우리가 꿈꾸는 세상</td>
+                              <td>5월 21일</td>
+                              <td>10:00, 12:00</td>
+                              <td class="txt_left">청와대 방문을 환영하며 방문객들을 맞이하는 다양한 공연</td>
+                              <td class="txt_left">국립무용단</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="2">칠궁</td>
+                              <td rowspan="2">봄 햇살, 꽃바람</td>
+                              <td>5월 11일~17일</td>
+                              <td rowspan="2">11:00, 15:00</td>
+                              <td rowspan="2" class="txt_left">고즈넉한 칠궁 마당에서 마음의 여유를 누리는 전통음악공연</td>
+                              <td class="txt_left">프로젝트 바움</td>
+                              </tr>
+                              <tr>
+                              <td>5월 18일~22일</td>
+                              <td class="txt_left">한국정악연구회</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="3">자연을<br> 품다</th>
+                              <td rowspan="3">청와대 경내</td>
+                              <td>경복궁 후원 산책</td>
+                              <td>5월 10일~22일</td>
+                              <td>자유탐방</td>
+                              <td class="txt_left">도심과 북악산의 자연으로 이어지는 청와대의 아름다운 산책로를 자유롭게 걷는 프로그램</td>
+                              <td class="txt_left">온실-순찰로-서순찰로-영빈관</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="2">보물을 찾아라!<br> &lsquo;경복궁 후원 문화유산 탐방&rsquo;</td>
+                              <td rowspan="2">5월 10일~22일</td>
+                              <td>자유탐방</td>
+                              <td class="txt_left" rowspan="2">침류각, 어정(御井), 석조여래좌상 등의 문화유적을 둘러보며 이 땅에 새겨진 역사의 흔적을 돌아보는 프로그램</td>
+                              <td class="txt_left" rowspan="2">미남불, 오운정, 침류각 등</td>
+                              </tr>
+                              <tr>
+                              <td>안내해설 <!--<br> (10:00, 11:00, 13:00, 14:00, 15:00, 16:00)--></td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="2">문화를<br> 펼치다</th>
+                              <td>청와대 경내</td>
+                              <td>왕가의 산책</td>
+                              <td>5월 11일~21일</td>
+                              <td>10:00, 15:00</td>
+                              <td class="txt_left">조선의 왕과 왕비가 국민과 함께 자연과 문화유산이 잘 보존된 경복궁 후원을 산책</td>
+                              <td class="txt_left">경복궁수문군</td>
+                              </tr>
+                              <tr>
+                              <td>청와대로</td>
+                              <td>팡팡(웃음팡, 희망팡) 퍼레이드<br> &lsquo;신명의 길을 여시오&rsquo;</td>
+                              <td>5월 11일~21일</td>
+                              <td>12:00, 16:00</td>
+                              <td class="txt_left">사자춤, 탈춤, 풍물, 진도북춤, 기접놀이 등이 성대하게 어우러지는 축하 퍼레이드</td>
+                              <td class="txt_left">한국의집예술단</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="7">전국을<br> 누리다</th>
+                              <td rowspan="2">합천 청와대세트장</td>
+                              <td rowspan="2">날마다 좋은 날</td>
+                              <td>5월 14일~15일</td>
+                              <td rowspan="2">11:00, 15:00</td>
+                              <td class="txt_left" rowspan="2">화합을 주제로, 음악과 춤 그리고 풍물놀이까지 다양한 예술공연</td>
+                              <td class="txt_left" rowspan="2">국립부산국악원</td>
+                              </tr>
+                              <tr>
+                              <td>5월 21일~22일</td>
+                              </tr>
+                              <tr>
+                              <td>대통령기록관 야외 공간</td>
+                              <td>기록으로 보는 청와대</td>
+                              <td>5월 10일~22일</td>
+                              <td>-</td>
+                              <td class="txt_left">청와대의 역사를 한 눈에 볼 수 있는 사진전</td>
+                              <td class="txt_left">세종 대통령 기록관</td>
+                              </tr>
+                              <tr>
+                              <td rowspan="4">청주 청남대</td>
+                              <td rowspan="4">청남대의 봄을 걷다</td>
+                              <td>5월 14일</td>
+                              <td>13:30, 15:00</td>
+                              <td class="txt_left" rowspan="4">한국관광 100선 추천 여행지로 선정된 청남대에서 아름다운 자연과 함께 즐기는 음악의 향연</td>
+                              <td class="txt_left">충북도립교향악단, 난장 &amp; 판</td>
+                              </tr>
+                              <tr>
+                              <td>5월 15일</td>
+                              <td>14:00, 14:30, 15:00</td>
+                              <td class="txt_left">퓨전국악 SOS, 익스프레션크루, 난장 &amp; 판</td>
+                              </tr>
+                              <tr>
+                              <td>5월 21일</td>
+                              <td>13:30, 15:00, 15:30</td>
+                              <td class="txt_left">충북도립교향악단, 조현민, 박민규</td>
+                              </tr>
+                              <tr>
+                              <td>5월 22일</td>
+                              <td>14:00, 14:30, 15:00, 15:30</td>
+                              <td class="txt_left">퓨전국악, 세자전거, 오드아이, 익스프레션크루</td>
+                              </tr>
+                              <tr>
+                              <th scope="row" rowspan="2">주말특별 프로그램</th>
+                              <td rowspan="2">소정원</td>
+                              <td rowspan="2">쉿! 마술사의 비밀 이야기</td>
+                              <td>5월 14일~15일</td>
+                              <td>12:00</td>
+                              <td class="txt_left" rowspan="2">비밀의 정원에서 드러나는 조선마술사의 비밀이야기</td>
+                              <td class="txt_left" rowspan="2">조선마술사 이경재</td>
+                              </tr>
+                              <tr>
+                              <td>5월 21일</td>
+                              <td>11:30</td>
+                              </tr>
+                              <tr>
+                              <th colspan="3">개방행사 피날레</th>
+                              <td>5월 22일</td>
+                              <td>19:30</td>
+                              <td class="txt_left" colspan="2">KBS 열린음악회</td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="item" data-id="t2">
+                 <button type="button" class="a_button">
+                  <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                  5월 10일 프로그램 세부내용 보기</span>
+                 </button>
+                 <div class="a_content">
+                  <div class="tbl_wrap">
+                    <div class="tbl_b">
+                      <table class="tbl c2">
+                        <caption>5월 10일 프로그램을 담은 표로, 구분, 장소, 프로그램, 일자, 시간, 내용, 출연으로 구성되어 있습니다.</caption>
+                        <colgroup>
+                          <col style="width: 9.7%;">
+                          <col style="width: 8.5%;">
+                          <col style="width: 19%;">
+                          <col style="width: 10%;">
+                          <col style="width: 11%;">
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">장소</th>
+                            <th scope="col">프로그램</th>
+                            <th scope="col">일자</th>
+                            <th scope="col">시간</th>
+                            <th scope="col">내용</th>
+                            <th scope="col">출연</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="5">약속을<br> 담다</th>
+                            <td>춘추문</td>
+                            <td>등산로 오픈식<br> 북악의 새아침, 열어갈 새길</td>
+                            <td>5월 10일</td>
+                            <td>6:30</td>
+                            <td class="txt_left">등산로 완전개방을 위한 개문행사</td>
+                            <td class="txt_left">타고, 축시 등</td>
+                            </tr>
+                            <tr>
+                            <td>정문</td>
+                            <td>개문행사<br> 새로운 희망의 문을 열다</td>
+                            <td>5월 10일</td>
+                            <td>10:30</td>
+                            <td class="txt_left">새로운 시대, 새로운 희망을 품은 청와대 개문을 축하하며 방문객들을 맞이하는 프로그램</td>
+                            <td class="txt_left">경복궁 수문군, 경비대 등</td>
+                            </tr>
+                            <tr>
+                            <td rowspan="3">대정원</td>
+                            <td rowspan="3">우리, 다 함께 누려요</td>
+                            <td rowspan="2">5월 10일</td>
+                            <td rowspan="2">12:00</td>
+                            <td rowspan="2" class="txt_left">국민과 함께 청와대 완전개방을 축하하는 공연</td>
+                            <td class="txt_left">종묘제례보존회</td>
+                            </tr>
+                            <tr>
+                            <td class="txt_left">종묘제례악보존회</td>
+                            </tr>
+                            <tr>
+                            <td>5월 10일</td>
+                            <td>14:30</td>
+                            <td class="txt_left">국가무형문화유산으로 지정된 농악단들이 펼치는 신명의 한마당</td>
+                            <td class="txt_left">국가무형문화재 농악 5개</td>
+                            </tr>
+                            <tr>
+                            <th scope="rowgroup" rowspan="2">희망을<br> 나누다</th>
+                            <td>춘추관 앞</td>
+                            <td>날아라, 줄광대!</td>
+                            <td>5월 10일</td>
+                            <td>12:30, 14:30</td>
+                            <td class="txt_left">아슬아슬, 포복절도의 전통줄타기 공연</td>
+                            <td class="txt_left">줄타기연희단</td>
+                            </tr>
+                            <tr>
+                            <td>녹지원</td>
+                            <td>푸른 봄, 푸른 향기</td>
+                            <td>5월 10일</td>
+                            <td>12:30, 16:30</td>
+                            <td class="txt_left">푸른 반송, 푸른 잔디밭 위에서 펼치는 젊은 감각의 퓨전음악 공연</td>
+                            <td class="txt_left">두번째달</td>
+                            </tr>
+                            <tr>
+                            <th scope="rowgroup" rowspan="4">역사를<br> 그리다</th>
+                            <td rowspan="2">영빈관 앞</td>
+                            <td rowspan="2">최고의 무사를 뽑아라!</td>
+                            <td rowspan="2">5월 10일</td>
+                            <td rowspan="2">12:30, 16:30</td>
+                            <td rowspan="2" class="txt_left">국가의 경사를 맞아 펼쳐졌던 내금위(왕실경호원) 무사 등용 의식을 재현</td>
+                            <td class="txt_left">십팔기보존회</td>
+                            </tr>
+                            <tr>
+                            <td class="txt_left">경복궁수문군</td>
+                            </tr>
+                            <tr>
+                            <td rowspan="2">칠궁</td>
+                            <td rowspan="2">봄 햇살, 꽃바람</td>
+                            <td rowspan="2">5월 10일</td>
+                            <td rowspan="2">13:00, 15:00</td>
+                            <td rowspan="2" class="txt_left">고즈넉한 칠궁 마당에서 마음의 여유를 누리는 전통음악공연</td>
+                            <td class="txt_left">프로젝트 바움</td>
+                            </tr>
+                            <tr>
+                            <td class="txt_left">한국정악연구회</td>
+                            </tr>
+                            <tr>
+                            <th scope="rowgroup" rowspan="4">문화를<br> 펼치다</th>
+                            <td>청와대 경내</td>
+                            <td>왕가의 산책</td>
+                            <td>5월 10일</td>
+                            <td>14:00, 17:00</td>
+                            <td class="txt_left">조선의 왕과 왕비가 국민과 함께 자연과 문화유산이 잘 보존된 경복궁 후원을 산책</td>
+                            <td class="txt_left">경복궁수문군</td>
+                            </tr>
+                            <tr>
+                            <td>청와대로</td>
+                            <td>팡팡(웃음팡, 희망팡) 퍼레이드<br> &lsquo;신명의 길을 여시오&rsquo;</td>
+                            <td>5월 10일</td>
+                            <td>13:00, 16:00</td>
+                            <td class="txt_left">사자춤, 탈춤, 풍물, 진도북춤, 기접놀이 등이 성대하게 어우러지는 축하 퍼레이드</td>
+                            <td class="txt_left">한국의집예술단</td>
+                            </tr>
+                            <tr>
+                            <td>소정원</td>
+                            <td>쉿! 마술사의 비밀 이야기</td>
+                            <td>5월 10일</td>
+                            <td>14:30</td>
+                            <td class="txt_left">비밀의 정원에서 드러나는 조선마술사의 비밀이야기</td>
+                            <td class="txt_left">조선마술사 이경재</td>
+                            </tr>
+                            <tr>
+                            <td>녹지원</td>
+                            <td>웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                            <td>5월 10일</td>
+                            <td>14:30, 17:00</td>
+                            <td class="txt_left">온 가족이 함께 즐기는 동심의 세계</td>
+                            <td class="txt_left">팀클라운</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                 </div> 
+                </div>
+               </div>
+               <p class="caption"><i>*</i>우천 시 행사 취소 또는 시간 조정이 있을 수 있습니다.</p>
+
+               <h2 class="title" style="margin-top: 7.5rem;">주말 공연 일정</h2>
+               <div class="program_a">
+
+                <div class="item" data-id="t3">
+                 <button type="button" class="a_button">
+                  <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                  10월 1일 ~ 10월 31일 프로그램 세부내용 보기</span>
+                 </button>
+                 <div class="a_content">
+                  <div class="tbl_wrap">
+                    <div class="tbl_b">
+                      <table class="tbl c2">
+                        <caption>주말 공연 일정을 담은 표로, 장소, 날짜, 요일, 시간, 공연단체, 공연명, 공연내용으로 구성되어 있습니다.</caption>
+                        <colgroup>
+                          <col style="width: 13%;">
+                          <col style="width: 8.5%;">
+                          <col style="width: 6.2rem;">
+                          <col style="width: 15%;">
+                          <col style="width: 13%;">
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th scope="col">장소</th>
+                            <th scope="col">날짜</th>
+                            <th scope="col">요일</th>
+                            <th scope="col">시간</th>
+                            <th scope="col">공연단체</th>
+                            <th scope="col">공연내용</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="5">헬기장</th>
+                            <td>10월1일</td>
+                            <td>토</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>중앙가야스트라</td>
+                            <td class="txt_left">우리나라의 전통 민요와 서양의 팝송들이 흥과 신명으로 어우러지다</td>
+                            </tr>
+                            <tr>
+                            <td>10월8일</td>
+                            <td>토</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>김예지, 변혜경</td>
+                            <td class="txt_left">두 줄의 현악기 해금과 장구, 하피드럼, 퍼커션 등의 타악기가 완성하는 다채로운 소리의 앙상블</td>
+                            </tr>
+                            <tr>
+                            <td>10월15일</td>
+                            <td>토</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>피어나</td>
+                            <td class="txt_left">가을날 누리는 행복이 피어나는 음악회</td>
+                            </tr>
+                            <tr>
+                            <td>10월22일</td>
+                            <td>토</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>음악동인 고물</td>
+                            <td class="txt_left">음악동인 고물의 해석을 통해 새롭게 태어나는 전통 음악을 만나다</td>
+                            </tr>
+                            <tr>
+                            <td>10월29일</td>
+                            <td>토</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>두번째달</td>
+                            <td class="txt_left">에스닉 퓨전 밴드 두번째달의 풍류 가득, 가을 음악회</td>
+                            </tr>
+                            <tr>
+                            <th scope="rowgroup" rowspan="3">대정원-녹지원 <br>(이동형)</th>
+                            <td>10월2일</td>
+                            <td>일</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>버블퍼레이드카</td>
+                            <td class="txt_left">무지개빛 비누방울과 함께 달리는 버블카 퍼레이드</td>
+                            </tr>
+                            <tr>
+                            <td>10월3일</td>
+                            <td>월</td>
+                            <td>1) 11:00 <br>2) 13:00 <br>3) 15:00</td>
+                            <td>버블퍼레이드카</td>
+                            <td class="txt_left">무지개빛 비누방울과 함께 달리는 버블카 퍼레이드</td>
+                            </tr>
+                            <tr>
+                            <td>10월10일</td>
+                            <td>월</td>
+                            <td>1) 11:00 <br>2) 13:00 <br>3) 15:00</td>
+                            <td>버블퍼레이드카</td>
+                            <td class="txt_left">무지개빛 비누방울과 함께 달리는 버블카 퍼레이드</td>
+                            </tr>
+                            <tr>
+                            <th scope="rowgroup" rowspan="3">영빈관 <br>앞마당</th>
+                            <td>10월9일</td>
+                            <td>일</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>크로키키 브라더스</td>
+                            <td class="txt_left">화려한 퍼포먼스, 배꼽 잡는 코메디와 함께 마법처럼 완성되는 멋진 그림!</td>
+                            </tr>
+                            <tr>
+                            <td>10월16일</td>
+                            <td>일</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>구니스컴퍼니</td>
+                            <td class="txt_left">보고 듣고 즐기고! 비보잉, 비트박스 감상에 체험까지 생기발랄한 젋음을 누리다</td>
+                            </tr>
+                            <tr>
+                            <td>10월30일</td>
+                            <td>일</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>봉앤줄</td>
+                            <td class="txt_left">화려한 기예와 다양한 예술장르를 결합한 창작서커스</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">대정원-정문 <br>(이동형)</th>
+                            <td>10월23일</td>
+                            <td>일</td>
+                            <td>1) 11:00 <br>2) 15:00</td>
+                            <td>극단봄</td>
+                            <td class="txt_left">3m30cm의 거대가족과 함께하는 청와대 나들이</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                 </div>
+                </div>
+
+                <div class="item" data-id="t4">
+                  <button type="button" class="a_button">
+                    <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                     9월 1일 ~ 9월 30일 프로그램 세부내용 보기</span>
+                   </button>
+                   <div class="a_content">
+                    <div class="tbl_wrap">
+                      <div class="tbl_b">
+                        <table class="tbl c2">
+                          <caption>주말 공연 일정을 담은 표로, 장소, 날짜, 요일, 시간, 공연단체, 공연명, 공연내용으로 구성되어 있습니다.</caption>
+                          <colgroup>
+                            <col style="width: 13%;">
+                            <col style="width: 8.5%;">
+                            <col style="width: 6.2rem;">
+                            <col style="width: 15%;">
+                            <col style="width: 13%;">
+                            <col>
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col">장소</th>
+                              <th scope="col">날짜</th>
+                              <th scope="col">요일</th>
+                              <th scope="col">시간</th>
+                              <th scope="col">공연단체</th>
+                              <th scope="col">공연내용</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="rowgroup" rowspan="4">녹지원 <br>일원</th>
+                              <td>9월9일</td>
+                              <td>금</td>
+                              <td>1) 11:00 <br>2) 14:00</td>
+                              <td>한국문화재재단예술단</td>
+                              <td class="txt_left">풍물놀이, 길놀이, 강강술래, 기접 등 전통예술 공연</td>
+                              </tr>
+                              <tr>
+                              <td>9월10일</td>
+                              <td>토</td>
+                              <td>1) 11:00 <br>2) 14:00</td>
+                              <td>줄타기연희단</td>
+                              <td class="txt_left">국가무형문화재 남사당놀이 어름, 풍물, 버나 등 전승자 공연</td>
+                              </tr>
+                              <tr>
+                              <td>9월11일</td>
+                              <td>일</td>
+                              <td>1) 11:00 <br>2) 14:00</td>
+                              <td>줄타기연희단</td>
+                              <td class="txt_left">국가무형문화재 남사당놀이 어름, 풍물, 버나 등 전승자 공연</td>
+                              </tr>
+                              <tr>
+                              <td>9월12일</td>
+                              <td>월</td>
+                              <td>1) 11:00 <br>2) 14:00</td>
+                              <td>한국문화재재단예술단</td>
+                              <td class="txt_left">풍물놀이, 길놀이, 강강술래, 기접 등 전통예술 공연</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="4">영빈관 <br>앞마당</th>
+                              <td>9월9일</td>
+                              <td>금</td>
+                              <td>1) 13:00 <br>2) 16:00</td>
+                              <td rowspan="4">한국전통타악그룹 <br>프로젝트 락 <br>봉숭아 프로젝트 <br>타악연희단 누리</td>
+                              <td class="txt_left">국악기와 양악기의 조화, 젊은 국악인들의 공연예술 무대</td>
+                              </tr>
+                              <tr>
+                              <td>9월10일</td>
+                              <td>토</td>
+                              <td>1) 13:00 <br>2) 16:00</td>
+                              <td class="txt_left">국악기와 양악기의 조화, 젊은 국악인들의 공연예술 무대</td>
+                              </tr>
+                              <tr>
+                              <td>9월11일</td>
+                              <td>일</td>
+                              <td>1) 13:00 <br>2) 16:00</td>
+                              <td class="txt_left">국악기와 양악기의 조화, 젊은 국악인들의 공연예술 무대</td>
+                              </tr>
+                              <tr>
+                              <td>9월12일</td>
+                              <td>월</td>
+                              <td>1) 13:00 <br>2) 16:00</td>
+                              <td class="txt_left">국악기와 양악기의 조화, 젊은 국악인들의 공연예술 무대</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="4">헬기장</th>
+                              <td>9월9일</td>
+                              <td>금</td>
+                              <td>9:00~18:00</td>
+                              <td>-</td>
+                              <td class="txt_left">추석 민속놀이 및 전통체험 행사(윷놀이, 투호놀이 등)</td>
+                              </tr>
+                              <tr>
+                              <td>9월10일</td>
+                              <td>토</td>
+                              <td>9:00~18:00</td>
+                              <td>-</td>
+                              <td class="txt_left">추석 민속놀이 및 전통체험 행사(윷놀이, 투호놀이 등)</td>
+                              </tr>
+                              <tr>
+                              <td>9월11일</td>
+                              <td>일</td>
+                              <td>9:00~18:00</td>
+                              <td>-</td>
+                              <td class="txt_left">추석 민속놀이 및 전통체험 행사(윷놀이, 투호놀이 등)</td>
+                              </tr>
+                              <tr>
+                              <td>9월12일</td>
+                              <td>월</td>
+                              <td>9:00~18:00</td>
+                              <td>-</td>
+                              <td class="txt_left">추석 민속놀이 및 전통체험 행사(윷놀이, 투호놀이 등)</td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                   </div>   
+                </div>
+
+                <div class="item" data-id="t5">
+                  <button type="button" class="a_button">
+                    <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                     8월 1일 ~ 8월 31일 프로그램 세부내용 보기</span>
+                   </button>
+                   <div class="a_content">
+                    <div class="tbl_wrap">
+                      <div class="tbl_b">
+                        <table class="tbl c2">
+                          <caption>주말 공연 일정을 담은 표로, 장소, 날짜, 요일, 시간, 공연단체, 공연명, 공연내용으로 구성되어 있습니다.</caption>
+                          <colgroup>
+                            <col style="width: 13%;">
+                            <col style="width: 8.5%;">
+                            <col style="width: 6.2rem;">
+                            <col style="width: 15%;">
+                            <col style="width: 13%;">
+                            <col>
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col">장소</th>
+                              <th scope="col">날짜</th>
+                              <th scope="col">요일</th>
+                              <th scope="col">시간</th>
+                              <th scope="col">공연단체</th>
+                              <th scope="col">공연내용</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="rowgroup" rowspan="6">본관 앞<br>대정원</th>
+                              <td>8월6일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>8월7일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>8월20일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>8월21일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>8월27일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>8월28일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr> 
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="item" data-id="t6">
+                  <button type="button" class="a_button">
+                    <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                     7월 2일 ~ 7월 31일 프로그램 세부내용 보기</span>
+                   </button>
+                   <div class="a_content">
+                    <div class="tbl_wrap">
+                      <div class="tbl_b">
+                        <table class="tbl c2">
+                          <caption>주말 공연 일정을 담은 표로, 장소, 날짜, 요일, 시간, 공연단체, 공연명, 공연내용으로 구성되어 있습니다.</caption>
+                          <colgroup>
+                            <col style="width: 13%;">
+                            <col style="width: 8.5%;">
+                            <col style="width: 6.2rem;">
+                            <col style="width: 15%;">
+                            <col style="width: 13%;">
+                            <col>
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col">장소</th>
+                              <th scope="col">날짜</th>
+                              <th scope="col">요일</th>
+                              <th scope="col">시간</th>
+                              <th scope="col">공연단체</th>
+                              <th scope="col">공연내용</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="rowgroup" rowspan="2">춘추관앞<br> (헬기장)</th>
+                              <td>7월8일</td>
+                              <td>금</td>
+                              <td>1) 11~12:00 <br>2) 16:00~17:00</td>
+                              <td>국가무형 문화재 줄타기 보존회</td>
+                              <td class="txt_left">날아라 줄광대</td>
+                              <td class="txt_left">국가무형문화재 중 긴급보호가 필요한 줄타기 종목의 전승자 공연</td>
+                              </tr>
+                              <tr>
+                              <td>7월9일</td>
+                              <td>금</td>
+                              <td>1) 11~12:00 <br>2) 16:00~17:00</td>
+                              <td>국가무형 문화재 줄타기 보존회</td>
+                              <td class="txt_left">날아라 줄광대</td>
+                              <td class="txt_left">국가무형문화재 중 긴급보호가 필요한 줄타기 종목의 전승자 공연</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="6">본관 앞<br>대정원</th>
+                              <td>7월16일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>7월17일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>7월23일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>7월24일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>7월30일</td>
+                              <td>토</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                              <tr>
+                              <td>7월31일</td>
+                              <td>일</td>
+                              <td>17:00~17:30</td>
+                              <td>국기원</td>
+                              <td class="txt_left">태권도 정기공연<br>(서울시)</td>
+                              <td class="txt_left">태권도의 강인한 기술과 동작 시범을 통해 고유의 정신 전달</td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="item" data-id="t7">
+                  <button type="button" class="a_button">
+                    <span><img src="/img/program_acco_title_ico.png" alt="btn">
+                     5월 28일 ~ 6월 26일 프로그램 세부내용 보기</span>
+                   </button>
+                   <div class="a_content">
+                    <div class="tbl_wrap">
+                      <div class="tbl_b">
+                        <table class="tbl c2">
+                          <caption>주말 공연 일정을 담은 표로, 장소, 날짜, 요일, 시간, 공연단체, 공연명, 공연내용으로 구성되어 있습니다.</caption>
+                          <colgroup>
+                            <col style="width: 13%;">
+                            <col style="width: 8.5%;">
+                            <col style="width: 6.2rem;">
+                            <col style="width: 15%;">
+                            <col style="width: 13%;">
+                            <col>
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col">장소</th>
+                              <th scope="col">날짜</th>
+                              <th scope="col">요일</th>
+                              <th scope="col">시간</th>
+                              <th scope="col">공연단체</th>
+                              <th scope="col">공연내용</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="rowgroup" rowspan="4">춘추관앞<br> (헬기장)</th>
+                              <td>5월28일</td>
+                              <td>토</td>
+                              <td>12:00 / 14:00</td>
+                              <td>극단 마린보이</td>
+                              <td class="txt_left">유쾌! 상쾌! 통쾌! 나홀로서커스</td>
+                              <td class="txt_left">다양한 묘기 퍼레이드와 광대의 유쾌한 재담</td>
+                              </tr>
+                              <tr>
+                              <td>5월29일</td>
+                              <td>일</td>
+                              <td>12:00 / 14:00</td>
+                              <td>극단 마린보이</td>
+                              <td class="txt_left">유쾌! 상쾌! 통쾌! 나홀로서커스</td>
+                              <td class="txt_left">다양한 묘기 퍼레이드와 광대의 유쾌한 재담</td>
+                              </tr>
+                              <tr>
+                              <td>6월4일</td>
+                              <td>토</td>
+                              <td>12:00 / 14:00</td>
+                              <td>극단 마린보이</td>
+                              <td class="txt_left">유쾌! 상쾌! 통쾌! 나홀로서커스</td>
+                              <td class="txt_left">다양한 묘기 퍼레이드와 광대의 유쾌한 재담</td>
+                              </tr>
+                              <tr>
+                              <td>6월5일</td>
+                              <td>일</td>
+                              <td>12:00 / 14:00</td>
+                              <td>팀클라운</td>
+                              <td class="txt_left">웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                              <td class="txt_left">온 가족이 함께 즐기는 동심의 세계</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup">대정원-녹지원<br> (이동형)</th>
+                              <td>6월11일</td>
+                              <td>토</td>
+                              <td>12:00 / 14:00 / 16:00</td>
+                              <td>팀클라운</td>
+                              <td class="txt_left">버블퍼레이드카</td>
+                              <td class="txt_left">형형색색의 비눗방울을 쏘는 버블카 퍼레이드</td>
+                              </tr>
+                              <tr>
+                              <th scope="rowgroup" rowspan="5">춘추관앞<br> (헬기장)</th>
+                              <td>6월12일</td>
+                              <td>일</td>
+                              <td>12:00 / 14:00</td>
+                              <td>팀클라운</td>
+                              <td class="txt_left">웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                              <td class="txt_left">온 가족이 함께 즐기는 동심의 세계</td>
+                              </tr>
+                              <tr>
+                              <td>6월18일</td>
+                              <td>토</td>
+                              <td>12:00 / 14:00</td>
+                              <td>극단 마린보이</td>
+                              <td class="txt_left">유쾌! 상쾌! 통쾌! 나홀로서커스</td>
+                              <td class="txt_left">다양한 묘기 퍼레이드와 광대의 유쾌한 재담</td>
+                              </tr>
+                              <tr>
+                              <td>6월19일</td>
+                              <td>일</td>
+                              <td>12:00 / 14:00</td>
+                              <td>팀클라운</td>
+                              <td class="txt_left">웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                              <td class="txt_left">온 가족이 함께 즐기는 동심의 세계</td>
+                              </tr>
+                              <tr>
+                              <td>6월25일</td>
+                              <td>토</td>
+                              <td>12:00 / 14:00</td>
+                              <td>팀클라운</td>
+                              <td class="txt_left">웃음 톡! 희망 톡! 비눗방울 톡톡!</td>
+                              <td class="txt_left">온 가족이 함께 즐기는 동심의 세계</td>
+                              </tr>
+                              <tr>
+                              <td>6월26일</td>
+                              <td>일</td>
+                              <td>12:00 / 14:00</td>
+                              <td>극단 마린보이</td>
+                              <td class="txt_left">유쾌! 상쾌! 통쾌! 나홀로서커스</td>
+                              <td class="txt_left">다양한 묘기 퍼레이드와 광대의 유쾌한 재담</td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                   </div> 
+                </div>
+
+               </div>
+
+               <p class="caption"><i>*</i>우천 시 행사 취소 또는 시간 조정이 있을 수 있습니다.</p>
+               
+               <div class="bg">
+                <img src="/img/program_bg_item1.png" alt="bg" class="item1">
+                <img src="/img/program_bg_item2.png" alt="bg" class="item2">
+               </div>
+
+              </div>
+             </div> 
+            </div>
+
+          </div>  
+         </div>   
+        </main>
+
+        <footer id="footer_section">
+          <div class="footer_wrap">
+            <div id="siteinfo">
+              <a class="logo"><img src="/img/logo_f2.png" alt="문화재청 청와대 국민개방 추진단"></a>
+            </div>
+            <div class="addinfo">
+              <address>우)03048 서울 종로구 청와대로 1</address>
+              <a href="#" class="policy_btn">개인정보처리방침</a>
+              <p class="warning">청와대 업무 표장[CI]은 상표권이 있는 국가 재산입니다.
+                <br> 사적·상업적 무단 사용은 법적인 규제 대상이 됩니다.
+              </p>
+            </div>
+            <a href="#" class="btn_top active" style="bottom: 190px;">TOP</a>
+          </div>
+         </footer>
+
+     </div>
+
+     <script>
+
+$(document).ready(function(){
+	$(".a_button").click(function(){
+		$(this).parent().siblings().children('.a_button').removeClass('on');
+		$(this).parent().siblings().children('.a_content').slideUp('fast');
+		$(this).parent().children('.a_content').slideToggle('fast');
+		$(this).toggleClass('on');
+	});
+});	
+
+      
+      </script>
+
+     
+    </body>
+</html>    
