@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>예약하기</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="/css/C_reserve2.css">
+        <link rel="stylesheet" type="text/css" media="all and (max-width: 428px)" href="/css/re_exam2.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <a id="home" href="/" tabindex="-1">청와대, 국민 품으로</a>
+        <div class="top_menu">
+            <a href="#" target="_blank">관람안내</a>
+            <a href="#" target="_blank">자주묻는질문</a>
+        </div>
+
+        <div id="container">
+            <header class="title"><h1>청와대 <br class="mobile" style="display: none;">관람예약</h1></header>
+            <div class="content form">
+             <div class="box-white">
+               <span class="caution_tit">주<br>의<br>사<br>항</span>
+               <span class="caution_txt">
+                <ol>
+                  <li style="font-size: 13px; list-style: decimal;">청와대 관람신청은 선착순으로 가능하며, 예약완료 시에는 취소 전까지 추가 신청이 불가합니다.</li>
+                  <li style="font-size: 13px; list-style: decimal;">다자녀 가족의 경우 : 신청가능 인원 수(6명)을 넘더라도 입장 시 가족관계증명서 또는 주민등록등본을 보여주시면 인원 제한없이 입장하실 수 있습니다.</li>
+                  <li style="font-size: 13px; list-style: decimal;">청와대 관람권을 제3자에게 양도하거나 유상으로 판매할 수 없으며, 필요 시 현장에서 신분증 확인을 요구할 수 있습니다.</li>
+                  <li style="font-size: 13px; list-style: decimal;">관람 예약 가능일은 신청일 기준 다음주부터 4주간이며, 매주 일요일 00시에 갱신됩니다.</li>  
+                </ol>
+               </span>
+               <form id="certify" action="/cert" method="post">
+                <input type="hidden" id="bi" name="bi" value="9588523912814a92b75166a4c7fda790">
+               </form>
+
+               <form id="reservation" action="/reser" method="post">
+                <input type="hidden" id="booking-id" name="booking-id" value="9588523912814a92b75166a4c7fda790">
+                <input type="hidden" id="booker-id" name="booker-id">
+                <input type="hidden" id="booking-se" name="booking-se">
+			    <input type="hidden" id="booking-time" name="booking-time">
+
+                <div class="inner">
+
+                    <h3 class="tit01">예약 신청 정보</h3>
+
+                    <div class="inner-b">
+                        <button id="button-daily" type="button" class="btn-append" tabindex="-1">날짜별 신청현황 조회 및 예약신청</button>
+                        <div class="inner-list">
+                            <label for="booking-se-display">예약유형</label>
+                            <input type="text" id="booking-se-display" tabindex="-1" readonly="readonly">
+                        </div>
+
+                        <div class="inner-list">
+                            <label for="booking-date">관람예약일자</label>
+                            <input type="text" id="booking-date" name="booking-date" tabindex="-1" readonly="readonly">
+                        </div>
+
+                        <div class="inner-list">
+                            <label for="booking-time-display">관람예약시간</label>
+                            <input type="text" id="booking-time-display" tabindex="-1" readonly="readonly">
+                        </div>
+
+                        <div class="inner-list_all inner-list2" tabindex="4">
+                            <label for="see-person">관람예약인원</label>
+                            <input type="hidden" id="see-person" name="see-person" value="0">
+                            <div class="number-box">
+                                <div class="people-num">
+                                    <span id="see-person-txt">0</span>
+                                    <p>명</p>
+                                </div>
+                                <div class="people_btn" style="z-index: 1000;">
+                                    <button type="button" id="plus-sp" tabindex="-1">
+                                        <img src="/img/ico_plus_btn.png" alt="plus">
+                                    </button>
+                                    <button type="button" id="minus-sp" tabindex="-1">
+                                        <img src="/img/ico_minus_btn.png" alt="minus">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                        <h3 class="tit01">본인인증</h3>
+
+                        <div class="inner-b">
+                            <button id="btn-certify" type="button" class="btn-append" tabindex="1">휴대폰 본인 인증하기</button>
+                            <p id="msg-certified" class="certify-txt" style="display: none;">본인 인증이 완료되었습니다.</p>
+                        </div>
+
+                        <div class="inner-b">
+                            <div class="inner-list">
+                                <label for="phone-name">이름</label>
+                                <input type="text" id="phone-name" name="phone-name" readonly="readonly" tabindex="-1">
+                            </div>
+
+                            <div class="inner-list">
+                                <label for="phone-no">전화번호</label>
+                                <input type="text" id="phone-no" name="phone-no" readonly="readonly" tabindex="-1">
+                            </div>
+                        </div>
+
+                        <div class="pwd-cont">
+                            <div class="inner-list">
+                                <label for="booking-pwd">비밀번호 (숫자4자리)</label>
+                                <input type="password" id="booking-pwd" name="booking-pwd" maxlength="4" tabindex="2">
+                            </div>
+
+                            <div class="inner-list">
+                                <label for="re-booking-pwd">비밀번호확인</label>
+                                <input type="password" id="re-booking-pwd" name="re-booking-pwd" maxlength="4" tabindex="3">
+                            </div>
+                        </div>
+
+                        <p style="font-size: 14px;">
+                        <br>
+                        &nbsp;&nbsp;※ 이름이 잘못 입력된 경우 휴대폰 본인인증을 다시 해야 하며, 비밀번호는 예약 후  예약 확인 및  취소 시 사용됩니다.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(비밀번호는 예약자가 임의의 숫자 4개를 입력    
+                        </p>
+
+                        <h3 class="tit01">약관동의</h3>
+
+                        <div class="agree-b all-agree">
+                            <span class="checkbox">
+                                <input type="checkbox" id="agree-all" tabindex="9">
+                                <label for="agree-all" style="color: #fff;">전체 필수 약관 및 항목에 동의합니다.</label>
+                            </span>
+                        </div>
+
+                        <div class="agree-b">
+                            <span class="checkbox">
+                                <input type="checkbox" id="privacy-collection" name="privacy-collection" tabindex="4">
+                                <label for="privacy-collection">
+                                    <span class="req">[필수]</span>
+                                    <span id="privacy-collection-txt">개인정보 수집 및 이용 동의</span>
+                                </label>
+                                <a href="#">상세내용 닫기</a>
+                            </span>
+                            <div class="agree-txt" style="display: none;">
+                                <textarea>
+                                    1. 수집항목
+                                    개인식별정보(CI), 이름, 휴대전화번호
+                                 2. 수집 및 이용목적
+                                    청와대 방문 신청 접수, 고객상담 및 분쟁 발생 시 해결을 위한 기록 보존
+                                 3. 보관기관
+                                    ① 개인정보 수집 및 이용 목적 달성 시 지체없이 파기
+                                    ② 단, 관련 법령에 의하여 일정 기간 보관이 필요한 경우에는 해당 기간 동안 보관함
+                                 4. 동의 거부권 등에 대한 고지
+                                    정보주체는 개인정보의 수집 및 이용 동의를 거부할 권리가 있으나, 이 경우 서비스 이용이 제한될 수 있습니다.
+                                                          
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="agree-b">
+                            <span class="checkbox">
+                                <input type="checkbox" id="privacy-offer" name="privacy-offer" tabindex="5">
+                                <label for="privacy-offer">
+                                    <span class="req">[필수]</span>
+                                    <span id="privacy-offer-txt">개인정보 제공 동의</span>
+                                </label>
+                                <a href="#">상세내용 펼침</a>
+                            </span>
+                            <div class="agree-txt" style="display: none;">
+                                <textarea readonly>
+                                    1. 개인정보를 제공받는 자
+                                 한국문화재단, 트리허브(주), (주)가비아, (주)서진인포텍
+                                 2. 제공하는 기본 개인정보 항목
+                                개인식별정보(CI), 이름, 휴대전화번호, 관람 예약 정보(관람 구분, 관람일자, 관람시간, 인원수)
+                                3. 개인정보를 제공받는 자의 이용목적
+                                ① 관람 예약 정보(개인식별정보(CI), 이름, 휴대전화번호, 관람 신청 정보): 청와대 관람 예약 관리, 민원처리 등 
+                                ② 관람 신청정보(개인식별정보(CI), 이름, 휴대전화번호, 예약정보): 관람 예약 결과 알림을 위한 문자서비스(SMS) 발송
+                                4. 개인정보를 제공받는 자의 보유 및 이용기간
+                                ① 관람신청정보(개인식별정보(CI), 이름, 휴대전화번호, 예약정보): ​동의일로부터 관람예약일 이후 30일까지 보관 후 파기
+                                5. 동의 거부권 등에 대한 고지
+                                정보주체는 개인정보 제공 동의를 거부할 권리가 있으나, 이 경우 서비스 이용이 제한될 수 있습니다.
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="agree-b">
+                            <span class="checkbox">
+                                <input type="checkbox" id="alarm-reception" name="alarm-reception" tabindex="6">
+                                <label for="alarm-reception">
+                                    <span class="req">[필수]</span>
+                                    <span id="alarm-reception-txt">청와대 관람 예약 결과 알림 수신동의</span>
+                                </label>
+                                <a href="#">상세내용 닫기</a>
+                            </span>
+                            <div class="agree-txt" style="display: none;">
+                                <textarea readonly>
+                                    청와대 관람 예약 결과를 신청하신 휴대폰으로 수신하는 것에 대해 동의합니다.
+                                </textarea>
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <p style="font-size: 14px;"> ※ 이에 대한 동의를 거부할 수 있습니다. 다만, 관람예약 및 관련 정보 제공이 불가능 할 수 있음을 알려드립니다.</p>
+                    
+                </div>
+               </form>
+               
+               <a id="btn-booking" href="#" class="btn-bottom disabled" tabindex="7">관람 신청 등록</a>
+             </div>   
+            </div>
+
+            <!-- <div id="page-expired" style="background: #fff; border-radius: 16px; display: none;">
+                <h3 class="tit01" style="text-align: center; margin: 75px 0;">만료된 페이지</h3>
+                <button id="btn-to-reserve" type="button" class="btn-append" tabindex="-1" style="width: 100%;">예약하러가기</button>
+            </div> -->
+
+            <div id="popup-daily-state" class="wrap1" style="z-index: 1001;">
+                <div id="container1">
+                    <div class="content form">
+                        <div class="box-white">
+                            <div class="inner">
+                                <div class="inner-header">
+                                    <h3 class="tit01">예약 신청 정보</h3>
+                                    <p class="sub01">
+                                    </p>
+                                    <div id="state-tab">
+                                        <span class="certify-txt">1. 아래 예약유형을 선택하세요.</span>
+                                        <br>
+                                        <button type="button" id="P" class="on" data-no="6200">개인(1~6명)</button>
+                                        <button type="button" id="G" data-no="500">단체(20~50명)</button>
+                                        <button type="button" id="Q" data-no="1300">만 65세 이상, 장애인(1~6명)</button>
+                                    </div>
+                                    <span class="certify-txt1">2. 아래 예약일자 및 시간을 선택하세요. (숫자는 예약 가능한 인원입니다.)</span>
+                                    <p></p>
+                                    <a href="#" class="close_btn">닫기</a>
+                                </div>
+                                <div class="cwd-table-wrap t-scroll">
+                                    <table id="state-table" class="cwd-table2">
+                                        <caption>예약 신청조회</caption>
+                                          <colgroup>
+                                            <col width="16%">
+						    	            <col width="14%">
+						    	            <col width="14%">
+						    	            <col width="14%">
+						    	            <col width="14%">
+						    	            <col width="14%">
+						    	            <col>
+                                          </colgroup>
+
+                                          <thead>
+                                            <tr>
+                                                <th scope="col">구분</th>
+                                                <th scope="col" data-time="0900">09:00~10:30</th>
+                                                <th scope="col" data-time="1030">10:30~12:00</th>
+                                                <th scope="col" data-time="1200">12:00~13:30</th>
+                                                <th scope="col" data-time="1330">13:30~15:00</th>
+                                                <th scope="col" data-time="1500">15:00~16:30</th>
+                                                <th scope="col" data-time="1630">16:30~18:00<br>(12~2월:16:00~17:30)</th>
+                                            </tr>
+                                          </thead>
+
+                                          <tbody>
+                                        <tr data-date="20221120">
+                                                <td>11.20 (일)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221121">
+                                                <td>11.21 (월)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221122">
+                                                <td>11.22 (화)</td>
+                                                <td class="off" colspan="6">휴관</td>
+                                        </tr>
+                                        <tr data-date="20221123">
+                                                <td>11.23 (수)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221124">
+                                                <td>11.24 (목)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221125">
+                                                <td>11.25 (금)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221126">
+                                                <td>11.26 (토)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221127">
+                                                <td>11.27 (일)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221128">
+                                                <td>11.28 (월)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221129">
+                                                <td>11.29 (화)</td>
+                                                <td class="off" colspan="6">휴관</td>
+                                        </tr>
+                                        <tr data-date="20221130">
+                                                <td>11.30 (수)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221201">
+                                                <td>12.01 (목)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221202">
+                                                <td>12.02 (금)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221203">
+                                                <td>12.03 (토)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221204">
+                                                <td>12.04 (일)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221205">
+                                                <td>12.05 (월)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221206">
+                                                <td>12.06 (화)</td>
+                                                <td class="off" colspan="6">휴관</td>
+                                        </tr>
+                                        <tr data-date="20221207">
+                                                <td>12.07 (수)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221208">
+                                                <td>12.08 (목)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221209">
+                                                <td>12.09 (금)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221210">
+                                                <td>12.10 (토)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221211">
+                                                <td>12.11 (일)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221212">
+                                                <td>12.12 (월)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221213">
+                                                <td>12.13 (화)</td>
+                                                <td class="off" colspan="6">휴관</td>
+                                        </tr>
+                                        <tr data-date="20221214">
+                                                <td>12.14 (수)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221215">
+                                                <td>12.15 (목)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221216">
+                                                <td>12.16 (금)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                        <tr data-date="20221217">
+                                                <td>12.17 (토)</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                        </tr>
+                                       </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // 예약 현황 관련 처리 
+	$(function() {
+		var cp = $("#to-home").data("cp");
+		var state = null;
+		var timeTable = [];
+		$("#state-table thead").find("th").each(function(i, th) {
+			var txt = $(th).text();
+			var time = $(th).data("time")
+			timeTable[i] = {txt: txt, time: time}
+		})
+		function limitBySe(se) {
+			if (se === "P") {
+				return parseInt($("#P").data("no"));
+			} else if (se === "G") {
+				return parseInt($("#G").data("no"));
+			} else if (se === "Q") {
+				return parseInt($("#Q").data("no"));
+			}
+		}
+		function setState() {
+			var se = $("#state-tab").find("button.on").prop("id");
+			$("#state-table").find("tbody tr").each(function(i, tr) {
+				$(tr).find("td span").each(function(j, span) {
+					var no = state[se][i][j];
+					var limit =  limitBySe(se);
+					var leftNo = limit - no;
+
+					if (leftNo > 0) {
+						$(span).closest("td").addClass("on");
+						$(span).text(leftNo.toLocaleString());
+					} else {
+						$(span).closest("td").removeClass("on");
+						$(span).text("예약완료");
+					}
+				});
+			});
+		}
+		$("#booking-date").closest(".inner-list").on("click", function() {
+			$("#btn-daily-state").trigger("click");	
+		});
+		$("#btn-daily-state").on("click", function() {
+			$("#popup-daily-state").addClass("on");
+			if (!state) {
+				var bookingId = $("#booking-id").val();
+				var url = cp + "/reservation/state/" + bookingId; 
+				$.get(url).done(function(res){
+					if (res && res.code == 200 && res.data) {
+						state = res.data;
+						setState();
+					}
+				});				
+			} else {
+				setState();
+			}
+		});
+		$("#state-tab").find("button").on("click", function() {
+			$(this).addClass("on").siblings().removeClass("on");
+			setState();
+		});
+		$("#state-table").on("click", "td.on", function() {
+			var date = $(this).closest("tr").data("date");
+			var idx = $(this).index();
+			var se = $("#state-tab").find("button.on").prop("id");
+			var seDisplay = $("#" + se).text();
+			$("#booking-se-display").val(seDisplay);
+			$("#booking-se").val(se);
+			$("#booking-date").val(date);
+			$("#booking-time-display").val(timeTable[idx].txt);
+			$("#booking-time").val(timeTable[idx].time);
+			$("#popup-daily-state").removeClass("on");
+			$("#booking-se-display").closest(".inner-list").addClass("val");
+			$("#booking-date").closest(".inner-list").addClass("val");
+			$("#booking-time-display").closest(".inner-list").addClass("val");
+            // 구분에 따른 인원설정
+            if (se == "P" || se == "Q") {
+                var seePersons = 1;
+                $("#see-persons").val(seePersons);
+                $("#see-persons-txt").text(seePersons);
+            } else if (se == "G") {
+                var seePersons = 20;
+                $("#see-persons").val(seePersons);
+                $("#see-persons-txt").text(seePersons);                
+            }
+            // 예약 현황 처리후 validation
+            $.validate();
+		});
+		
+	})
+	// 인증관련처리
+	$(function() {
+	    window.name = "blue_house_reservation";
+	    $("#btn-certify").on("click", function() {
+	    	var UserAgent = navigator.userAgent;
+
+	    	// 모바일인 경우 (변동사항 있을경우 추가 필요)
+	    	if (UserAgent.match(/iPhone|iPad|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null)
+	    	{
+	    		KMCIS_window = window.open('', 'SCWindow');
+	    	}
+	    	// 모바일이 아닌 경우
+	    	else
+	    	{
+	    		// 기본 팝업 size
+	    		var jwidth	= "520";
+	    		var jHeight	= "500";
+
+	    		var UserAgent = navigator.userAgent.toLowerCase();
+
+	    		if(UserAgent.indexOf("chrome") != -1){
+	    			var jwidth	= "560";
+	    			var jHeight	= "570";
+	    		}else if(UserAgent.indexOf("safari") != -1){
+	    			jwidth	= "441";
+	    			jHeight	= "388";
+	    		}
+	    		KMCIS_window = window.open('', 'SCWindow', 'width='+jwidth+', height='+jHeight+', resizable=no, scrollbars=no, status=0, titlebar=0, toolbar=0, left=435, top=250' );
+	    	}
+
+	    	if(KMCIS_window == null){
+	    		alert(" ※ 윈도우 XP SP2 또는 인터넷 익스플로러 7 사용자일 경우에는 \n    화면 상단에 있는 팝업 차단 알림줄을 클릭하여 팝업을 허용해 주시기 바랍니다. \n\n※ MSN,야후,구글 팝업 차단 툴바가 설치된 경우 팝업허용을 해주시기 바랍니다.");
+	    	}
+	    	$("#form-certify").submit();
+	    });
+	    window.afterSetvalue = function(name, phone, bookerId) {
+			$("#phone-name").val(name).trigger("focusout");
+			$("#phone-no").val(phone).trigger("focusout");
+			$("#booker-id").val(bookerId);
+			// 인증 종료후 validation
+			$.validate();
+	    }
+	})
+    
+    $(function() {
+        var $form = $("#form-reservation");
+        var $formNumber = $form.find(".inner-list.inner-list2");
+        var $formInput = $form.find(".inner-list").not(".sel").not(".inner-list2");
+        
+        var pMin = 1;
+        var pMax = 6;
+        var gMin = 20;
+        var gMax = 50;
+        $("#minus-see-persons").on("click", function() {
+            var bookingSe = $("#booking-se").val();
+            var seePersons = parseInt($("#see-persons").val());
+            if (bookingSe == "P" || bookingSe == "Q") {
+                if (seePersons > pMin) {
+                    seePersons = seePersons - 1;
+                } else {
+                    seePersons = pMin;
+                }
+            } else if (bookingSe == "G") {
+                if (seePersons > gMin) {
+                    seePersons = seePersons - 1;
+                } else {
+                    seePersons = gMin;
+                }
+            }
+            $("#see-persons").val(seePersons);
+            $("#see-persons-txt").text(seePersons);
+        })
+
+        $("#plus-see-persons").on("click", function() {
+            var bookingSe = $("#booking-se").val();
+            var seePersons = parseInt($("#see-persons").val());
+            if (bookingSe == "P" || bookingSe == "Q") {
+                if (seePersons < pMax) {
+                    seePersons = seePersons + 1;
+                } else {
+                    seePersons = pMax;
+                }
+            } else if (bookingSe == "G") {
+                if (seePersons < gMin) {
+                    seePersons = gMin;
+                } else if (seePersons < gMax) {
+                    seePersons = seePersons + 1;
+                } else {
+                    seePersons = gMax;
+                }
+            }
+            $("#see-persons").val(seePersons);
+            $("#see-persons-txt").text(seePersons);
+        })
+
+        $formNumber.focusin(function() {
+            var $this = $(this);
+            if (!$this.hasClass("focus")) {
+                $this.addClass("focus");
+            }
+        });
+
+        $formNumber.on("focusout", function() {
+            $(this).removeClass("focus");
+            var val = parseInt($(this).find("input").val());
+            if (val) {
+                $(this).addClass("val");
+            } else {
+                $(this).removeClass("val");
+            }
+        });
+
+        $formInput.find("input").on("focus", function() {
+            $formInput.removeClass("focus");
+            $(this).closest(".inner-list").addClass("focus");
+        });
+
+        $formInput.find("input").on("focusout", function() {
+            var $comp = $(this).closest(".inner-list");
+            $comp.removeClass("focus");
+            var val = $(this).val();
+            if (val) {
+                $comp.addClass("val");
+            } else {
+                $comp.removeClass("val");
+            }
+        });
+
+    });
+	// 약관동의
+	$(function() {
+		
+        $(".agreement-box").find("a").on("click", function() {
+    		if ($(this).parent().next(".agree-txt").is(":hidden")) {
+    			$(".agree-txt").slideUp(300);
+    			$(this).parent().next(".agree-txt").slideDown(300);
+    			$(this).text("상세내용 닫기");
+    		} else {
+    			$(this).parent().next(".agree-txt").slideUp(300);
+    			$(this).text("상세내용 펼침");
+    		}
+        });
+        $("#agree-all").on("change", function() {
+            var checked = $(this).prop("checked");
+            if (checked) {
+                $(".agreement-box").find("input").prop("checked", true);
+            } else {
+                $(".agreement-box").find("input").prop("checked", false);
+            }
+        });
+        $(".agreement-box").find("input").on("change", function() {
+        	var checked = $(this).prop("checked");
+        	if (checked) {
+        		var inputs = $(".agreement-box").find("input").filter(function() {
+        			return $(this).prop("checked");
+        		});
+				if (inputs.length == 3) $("#agree-all").prop("checked", true);        		
+        	} else {
+        		$("#agree-all").prop("checked", false);		
+        	}
+        });
+        
+    });
+    
+    $(function() {
+        var cp = $("#to-home").data("cp");
+        $("#btn-booking").on("click", function() {
+        	var isDisabled = $("#btn-booking").hasClass("disabled");
+        	if (!isDisabled) {
+            	// 입력이 모두 끝난경우
+    			var pwd = $("#booking-pwd").val();
+    			var repwd = $("#re-booking-pwd").val();
+            	if (pwd == repwd) {
+                    var data = $("#form-reservation").serializeObject();
+                    var url = $("#form-reservation").prop("action");
+                    
+                    $.rta.post(url, data).done(function(res) {
+                        if (res && res.code == 200) {
+                        	location.href = cp + "/reserved/" + res.data.bookingId;
+                        } else if (res && res.code == 501) {
+                        	alert("동일한 핸드폰번호로 관람이 끝나지 않은 예약이 존재합니다. \n관람 또는 예약 취소 후 다시 예약해 주세요!!!");
+                        } else if (res && res.code == 502) {
+                        	alert("현재보다 과거를 예약할 수 없습니다 !!!");
+                        } else if (res && res.code == 503) {
+                        	alert("예약가능한 인원수를 범위가 아닙니다 !!!");
+                        } else if (res && res.code == 504) {
+                        	alert("예약 항목을 전부 입력하셔야 합니다 !!!");
+                        } else {
+                        	alert("예약 중에 에러가 발생하였습니다. 잠시 후에 다시 시도해 주세요!!!");
+                        }
+                    });
+            	} else {
+            		alert("패스워드가 일치하지 않습니다.")
+            	}
+        	} else {
+        		var agree = ["privacy-collection", "privacy-offer", "alarm-reception"];
+        		// 입력이 끝나지 않은 경우의 알림
+        		var bookerId = $("#booker-id").val();
+        		var bookingSe = $("#booking-se").val();
+        		var bookingTime = $("#booking-time").val();
+				var agreeResult = agree.every(function(id) {
+					var checked = $("#" + id).prop("checked");
+					return checked;
+				});
+        		if (!bookingSe || !bookingTime) {
+        			alert("날짜별 신청현황을 클릭하시셔서 예약일시를 선택하셔야 예약을 하실 수 있습니다.");	
+        		} else if (!bookerId) {
+        			alert("본인인증을 하셔야 예약을 하실 수 있습니다.");
+        		} else if (!agreeResult) {
+        			alert("약관에 모두 동의를 하셔야 예약을 하실 수 있습니다.");
+        		}
+        	}
+        });
+    });
+    
+	/*	1. 본인인증시 // validation
+		2. 날짜
+		3. 비밀번호
+		4. 약관 동의시	*/
+	$(function() {
+		var inputs = ["phone-name", "phone-no", "booking-se", "booking-time"]
+		var pwds = ["booking-pwd", "re-booking-pwd"];
+		var agree = ["privacy-collection", "privacy-offer", "alarm-reception"];
+		function validate() {
+			// input
+			var inputResult = inputs.every(function(id) {
+				var val = $("#" + id).val();
+				if (!val) {
+					return false;	
+				}
+				return true;
+			})
+			// 패스워드
+			var pwdResult = pwds.every(function(id) {
+				var val = $("#" + id).val();
+				if (val && val.length == 4) return true;
+				return false;
+			});
+
+			// 동의
+			var agreeResult = agree.every(function(id) {
+				var checked = $("#" + id).prop("checked");
+				return checked;
+			});
+			
+			if (inputResult && pwdResult && agreeResult)  {
+				$("#btn-booking").removeClass("disabled");
+			} else {
+				$("#btn-booking").addClass("disabled");
+			}
+		}
+		$.validate = validate;
+		
+		$("#booking-pwd, #re-booking-pwd").on("input", function(e) {
+			var key = e.originalEvent.keyCode;
+			var val = $(this).val();
+			$(this).val(val.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
+			// 패스워드 처리후 validation
+			$.validate();
+		});
+		$("#booking-pwd, #re-booking-pwd").on("keypress", function(e) {
+			var key = e.originalEvent.keyCode;
+			if (key < 48 || key > 57) {
+				return false;
+			}
+		});
+		
+		$(".agreement-box").find("input").on("change", function() {
+			var checked = $(this).prop("checked");
+			// 동의 체크 후 validation
+			$.validate();
+		});
+	});
+	
+	$(document).ready(function(){
+        $('.close_btn').on('click',function(){
+            $('.wrap1').removeClass('on')
+        })
+    })
+
+	window.addEventListener('beforeunload', function() {
+		$(".content").empty();
+		$("#popup-daily-state").remove();
+		$("#page-expired").show(1000);
+	});
+	$("#btn-to-reserve").on("click", function(){
+		location.href="https://reserve.opencheongwadae.kr/"
+	});
+            </script>
+
+        </div>
+        </div>
+    </body>
+</html>    
