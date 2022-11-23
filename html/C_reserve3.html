@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>예약하기</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="/css/C_reserve3.css">
+        <link rel="stylesheet" type="text/css" media="all and (max-width: 428px)" href="/css/re_exam3.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <a id="home" href="/" tabindex="-1">청와대, 국민 품으로</a>
+        <div class="top_menu">
+            <a href="#" target="_blank">관람안내</a>
+            <a href="#" target="_blank">자주묻는질문</a>
+        </div>
+        
+        <div id="container">
+            <header class="title inquiry">
+                <h1 class="main">청와대 관람 예약 <br class="mobile">조회 및 취소</h1>
+            </header>
+            <div class="content form">
+                <div class="box-white">
+                    <form id="form-inquiry" action="/inquiry" method="post">
+                        <div class="inner content_po">
+                            <h3 class="tit01">예약 신청 정보</h3>
+                            <div class="inner-list w100">
+                                <label for="phone-name">예약자 성명</label>
+                                <input type="text" id="phone-name" name="phone-name">
+                            </div>
+                            <div class="inner-list w100">
+                                <label for="phone-no">휴대폰 번호</label>
+                                <input type="text" id="phone-no" name="phone-no" maxlength="11">
+                            </div>
+                            <div class="inner-list w100">
+                                <label for="booking-pwd">비밀번호</label>
+                                <input type="password" id="booking-pwd" name="booking-pwd" maxlength="4">
+                            </div>
+                            <a href="#" class="close_btn">닫기</a>
+                        </div>
+                    </form>
+
+                    <div class="notice">
+                        <strong>알림</strong>
+                        <ul class="list">
+                            <li>청와대 관람 예약 조회 결과는 최근 예약한 1건에 한하여 예약 결과가 표시됩니다.</li>
+                            <li>비밀번호를 잃어버리신 경우 개방행사 안내센터(1522-7760)로 문의하여 주시기 바랍니다.</li>
+                        </ul>
+                    </div>
+                    <a id="btn-inquiry" href="#" class="btn-bottom disabled">조회</a>
+                </div>
+            </div>
+
+            <script>
+                
+var isSearchStart = false;
+// validation 처리
+$(function() {
+	$("#phone-no, #booking-pwd").on("input", function(e) {
+		var key = e.originalEvent.keyCode;
+		var val = $(this).val();
+		$(this).val(val.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
+		
+	});
+
+	$("#phone-no, #booking-pwd").on("keypress", function(e) {
+		var key = e.originalEvent.keyCode;
+		if (key < 48 || key > 57) {
+			return false;
+		}
+	});
+
+	$("#form-inquiry").on("input", function() {
+		var inputCnt = 0;
+		$("#form-inquiry").find("input").each(function() {
+			if ($(this).val()) inputCnt++;
+		});
+		var pwd = $("#booking-pwd").val();
+		if (inputCnt == 3 && pwd.length == 4) {
+			$("#btn-inquiry").removeClass("disabled");
+		} else {
+			$("#btn-inquiry").addClass("disabled");
+		}
+	});
+});
+
+$(function() {
+    // focus 처리
+    $("input").focusin(function() {
+       $(this).closest(".inner-list").addClass("focus"); 
+    });
+    $("input").focusout(function() {
+        $(this).closest(".inner-list").removeClass("focus");
+        if ($(this).val()) {
+            $(this).closest(".inner-list").addClass("val");    
+        }
+     });
+
+    // 조회 버튼 disable 처리
+    $("input").focusout(function() {
+        if ($(".popup-box").find(".val").length >=3) {
+      		$("#btn-inquiry").removeClass("disabled");
+        } else {
+            $("#btn-inquiry").addClass("disabled");
+        }
+    })
+
+	$("#btn-inquiry").on("click", function() {
+		var isDisabled = $("#btn-inquiry").hasClass("disabled");
+		if (isSearchStart && isDisabled) return false;
+		isSearchStart = true;
+	    var data = $("#form-inquiry").serializeObject();
+	    var url = $("#form-inquiry").prop("action");
+	    var cp = $("#form-inquiry").data("cp");
+	    $.rta.post(url, data).done(function(res) {
+	        if (res && res.code == 200) {
+	            location.href = cp + "/inquiry/" + res.data;
+	        } else {
+	            location.href = cp + "/inquiry/pnf";
+	        }
+	    });
+	    isSearchStart = false;
+	})
+	var height = $("#inner-wrapper").height();
+    $("#inner-wrapper").css("height", height + "px");
+    $("#inner-wrapper").find(".inner").addClass("inner-fixed")
+    
+});
+
+            </script>
+        </div>
+        </div>
+    </body>
+</html>    
